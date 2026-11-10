@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ENSIM Trade Center · Tableau de bord</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="eyebrow">ENSIM TRADE CENTER</div><h1>Tableau de bord trader</h1><p>Décider avec les prix observés, suivre la valeur et maîtriser le risque.</p></header>
+  <main>
+    <div id="status" role="status">Chargement des données…</div>
+    <section class="metrics" aria-label="Indicateurs principaux">
+      <article><span>Valeur totale</span><strong id="value">—</strong><small id="cash">Trésorerie —</small></article>
+      <article><span>Écart à la meilleure référence</span><strong id="gap">—</strong><small id="leader">—</small></article>
+      <article><span>Drawdown maximal observé</span><strong id="drawdown">—</strong><small>Depuis le début des instantanés</small></article>
+      <article><span>Dernier tour</span><strong id="tick">—</strong><small id="updated">—</small></article>
+    </section>
+    <section class="panel"><div class="section-heading"><div><h2>Performance</h2><p>Valeur du portefeuille par tour, face aux trois traders de référence.</p></div></div><canvas id="chart" height="320" role="img" aria-label="Courbes de valeur des portefeuilles"></canvas><div id="legend" class="legend"></div><p class="note" id="chart-note"></p></section>
+    <section class="grid">
+      <article class="panel"><h2>Risque</h2><p>Perte maximale depuis un sommet de valeur observé.</p><div class="risk-line"><span>Drawdown actuel</span><strong id="current-drawdown">—</strong></div><div class="risk-line"><span>Tours suivis</span><strong id="samples">—</strong></div><p class="note">Le risque est calculé sur les instantanés enregistrés. Il ne décrit pas les tours précédant l'inscription.</p></article>
+      <article class="panel"><h2>Prix et signal par produit</h2><p>Moyennes mobiles sur 5 et 20 tours ; décision bornée à 30 unités.</p><div id="products" class="product-list"></div></article>
+    </section>
+    <section class="panel"><h2>Journal des décisions</h2><p>Derniers tours enregistrés, avec la raison du signal.</p><div class="table-wrap"><table><thead><tr><th>Tour</th><th>Date</th><th>Produit</th><th>Décision</th><th>Motif</th></tr></thead><tbody id="log"></tbody></table></div></section>
+  </main>
+  <footer>Sources : flux du marché et classement de l'organisateur ; instantanés enregistrés par ce dépôt.</footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
