@@ -8,7 +8,7 @@ Ce dépôt contient un signal de trading explicable, le fichier de décision lu 
 2. Attendre la confirmation d'inscription, puis inscrire l'identifiant exact du trader dans `config.json` (`trader_id`). Le script utilise cet identifiant pour lire `traders/<id>/holdings.json` dans le dépôt de l'organisateur.
 3. Lancer `python scripts/algorithm.py` à la racine, puis vérifier `decision.json` et `data/performance.json`. Le script n'a aucune dépendance externe et copie la configuration et l'historique nécessaires dans `docs/`.
 4. Publier les modifications. Dans **Settings → Actions → General**, autoriser **Read and write permissions**. Lancer **Auto decide** manuellement une fois dans l'onglet Actions, puis vérifier son résultat. Le programme s'exécute ensuite deux fois par heure.
-5. Activer GitHub Pages avec la branche `main` et le dossier `/docs`. Ouvrir l'URL Pages du dépôt pour consulter le tableau de bord.
+5. Activer GitHub Pages avec la branche `main` et le dossier `/ (root)`. L'URL Pages du dépôt redirige alors vers le tableau de bord dans `docs/`.
 
 Tant que `trader_id` est vide, `decision.json` reste à zéro et l'automatisation n'émet aucun ordre. L'identifiant doit venir de l'organisateur ; il ne faut pas le deviner.
 
