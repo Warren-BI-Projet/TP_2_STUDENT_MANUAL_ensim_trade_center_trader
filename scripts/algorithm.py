@@ -17,7 +17,7 @@ BASELINES = ("random_trader", "random_buyer", "random_seller")
 
 def fetch_json(url: str) -> dict:
     request = Request(url, headers={"User-Agent": "ensim-trader-student/1.0"})
-    with urlopen(request, timeout=20) as response:
+    with urlopen(request, timeout=60) as response:
         return json.load(response)
 
 

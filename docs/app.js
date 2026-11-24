@@ -56,6 +56,9 @@ async function load(){
     const base=config.organizer_base_url.replace(/\/$/,'');
     const holdings=await fetchJson(`${base}/traders/${encodeURIComponent(config.trader_id)}/holdings.json`);
     const prices=market.history.at(-1),value=Number(holdings.money)+market.products.reduce((sum,p)=>sum+Number(holdings.products[p]||0)*Number(prices[p]),0);
+    const trader=leaderboard.leaderboard.find(x=>x.id===config.trader_id);
+    const rank=leaderboard.leaderboard.findIndex(x=>x.id===config.trader_id)+1;
+    text('trader-name',trader?`${trader.name} · ${rank}e sur ${leaderboard.leaderboard.length} au classement`:`Trader ${config.trader_id} · classement en attente`);
     const refs=leaderboard.leaderboard.filter(x=>['random_trader','random_buyer','random_seller'].includes(x.id));
     const best=refs.reduce((a,b)=>Number(a.total_value)>Number(b.total_value)?a:b);
     text('value',money(value));text('cash',`Trésorerie ${money(holdings.money)}`);
@@ -67,7 +70,7 @@ async function load(){
     drawProducts(market,snapshots.at(-1));drawLog(snapshots);drawChart(snapshots);
     const legend=$('legend');legend.replaceChildren();for(const [key,color] of Object.entries(colors)){const item=document.createElement('span'),dot=document.createElement('i');dot.style.background=color;item.append(dot,labels[key]);legend.append(item)}
     text('chart-note',snapshots.length<2?'La courbe apparaîtra après deux tours enregistrés. Les valeurs actuelles figurent ci-dessus.':'Historique enregistré depuis la première exécution de l’algorithme.');
-    text('status',`Données du marché : tour ${prices.t}. Valeur actuelle recalculée avec les derniers prix ; journal mis à jour par GitHub Actions.`);
+    text('status',`Trader ${config.trader_id} inscrit · données du marché : tour ${prices.t}. Valeur actuelle recalculée avec les derniers prix ; journal mis à jour par GitHub Actions.`);
     window.addEventListener('resize',()=>drawChart(snapshots));
   }catch(error){text('status',`Impossible de charger les données : ${error.message}`)}
 }

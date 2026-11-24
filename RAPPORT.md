@@ -24,4 +24,4 @@ Le tableau de bord montre la valeur actuelle, l'écart avec la meilleure des tro
 
 ## Résultats à renseigner après plusieurs tours
 
-L'inscription du trader n'est pas encore configurée dans ce dépôt. Après plusieurs tours, reporter ici : période observée, valeur initiale et finale, rendement, valeurs finales des trois références, drawdown maximal, quelques décisions marquantes et les éventuels changements de règle. Appuyer ces observations sur `data/performance.json` et le journal du tableau de bord. Ne pas attribuer au modèle une performance non encore observée.
+Le trader est inscrit sous l'identifiant `warren`. Après plusieurs tours de décisions automatiques, reporter ici : période observée, valeur initiale et finale, rendement, valeurs finales des trois références, drawdown maximal, quelques décisions marquantes et les éventuels changements de règle. Appuyer ces observations sur `data/performance.json` et le journal du tableau de bord. Ne pas attribuer au modèle une performance non encore observée.

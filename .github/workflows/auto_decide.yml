@@ -1,6 +1,10 @@
 name: Auto decide
 
 "on":
+  push:
+    paths:
+      - config.json
+      - scripts/algorithm.py
   schedule:
     - cron: "17,47 * * * *"
   workflow_dispatch: {}
