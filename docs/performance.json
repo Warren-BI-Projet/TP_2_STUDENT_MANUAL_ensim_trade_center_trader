@@ -286,5 +286,37 @@
         "reason": "Achat : moyenne 5 tours > moyenne 20 tours, mouvement confirmé."
       }
     }
+  },
+  {
+    "tick": 388,
+    "timestamp": "2026-11-27T23:07:28Z",
+    "recorded_at": "2026-11-27T23:45:43Z",
+    "total_value": 19803.42,
+    "money": 80.79,
+    "baselines": {
+      "random_buyer": 19814.59,
+      "random_trader": 19800.63,
+      "random_seller": 18005.8
+    },
+    "decisions": {
+      "C": {
+        "raw_signal": -0.3,
+        "signal": -0.3,
+        "price": 0.9111,
+        "reason": "Vente : moyenne 5 tours < moyenne 20 tours, mouvement confirmé."
+      },
+      "B": {
+        "raw_signal": 0.05,
+        "signal": 0.0,
+        "price": 12.7085,
+        "reason": "Signal écarté par la réserve, le plafond d'exposition ou le stock."
+      },
+      "A": {
+        "raw_signal": 0.3,
+        "signal": 0.049,
+        "price": 5.258,
+        "reason": "Achat : moyenne 5 tours > moyenne 20 tours, mouvement confirmé (réduit par les limites de risque)."
+      }
+    }
   }
 ]
